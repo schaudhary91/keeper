@@ -11,15 +11,6 @@ module.exports = function (app){
     return db.collection(cname);
   }
 
-  function getData(cname,query,projection){
-    getCollection(cname).find(query,projection);
-  }
-
-  app.param('cn', function(req, res, next, cn){
-    req.collection = getCollection(cn);
-    return next();
-  })
-
   /* GET success true */
   router.get('/', function(req, res) {
     res.send({success:true});
@@ -111,6 +102,7 @@ module.exports = function (app){
     })
   });
 
+
   /* GET Collection Data by key : val*/
   router.get('/:cn/:key/:val', function(req, res, next) {
     var fobj = {};
@@ -122,6 +114,46 @@ module.exports = function (app){
       res.send(results);
     })
   });
+
+  /* Insert Collection Data */
+  router.post('/:cn', function(req, res, next) {
+    getCollection(req.params.cn).insert(req.body, {}, function(e, results){
+        if (e) {
+          return next(e);
+        }
+        res.send(results);
+      });
+  });
+
+  /* Update Collection Data */
+  router.put('/:cn/:key/:val', function(req, res, next) {
+    var query = {};
+
+    query[req.params.key] = req.params.val
+
+    getCollection(req.params.cn).update(req.params.id, {$set:req.body}, {safe:true, multi:false}, function(e, result){
+      if (e) {
+        return next(e);
+      }
+      res.send((result===1)?{success:true}:{success:false});
+    });
+  });
+
+  /* Delete Collection Data */
+
+  router.delete('/:cn/:key/:val', function(req, res, next) {
+    var query = {};
+
+    query[req.params.key] = req.params.val
+
+    req.collection.remove(query, function(e, result){
+      if (e) {
+        return next(e);
+      }
+      res.send((result===1)?{success:true}:{success:false});
+    })
+  })
+
 
   return router;
 
