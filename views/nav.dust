@@ -1,0 +1,18 @@
+<div class="icon-bar small-horizontal four-up">
+  <a class="item">
+    <label class="fi-home size-2em"></label>
+    <!--<label>Home</label>-->
+  </a>
+  <a class="item">
+    <label class="fi-bookmark size-2em"></label>
+    <!--<label>Bookmark</label>-->
+  </a>
+  <a class="item">
+    <label class="fi-info size-2em"></label>
+    <!--<label>Info</label>-->
+  </a>
+  <a class="item">
+    <label class="fi-mail size-2em"></label>
+    <!--<label>Mail</label>-->
+  </a>
+</div>
