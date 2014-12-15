@@ -1,5 +1,5 @@
 <div class="icon-bar small-horizontal four-up">
-  <a class="item">
+  <a class="item" href="/">
     <label class="fi-home size-2em"></label>
     <!--<label>Home</label>-->
   </a>
