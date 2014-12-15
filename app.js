@@ -4,6 +4,7 @@ var express = require('express'),
     logger = require('morgan'),
     cookieParser = require('cookie-parser'),
     bodyParser = require('body-parser'),
+    cons = require('consolidate'),
     mongoskin = require('mongoskin'),
     routes = require('./routes/index'),
     users = require('./routes/users');
@@ -12,8 +13,9 @@ var app = express();
 var data = require('./routes/data')(app);
 
 // view engine setup
+app.engine('dust', cons.dust);
 app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'jade');
+app.set('view engine', 'dust');
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(__dirname + '/public/favicon.ico'));

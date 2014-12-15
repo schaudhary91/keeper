@@ -15,6 +15,6 @@
     "jade": "~1.6.0",
     "mongoskin": "*",
     "consolidate": "^0.10.0",
-    "dust": "^0.3.0"
+    "dustjs-linkedin": "^2.5.1"
   }
 }
