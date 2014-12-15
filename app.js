@@ -10,7 +10,7 @@ var express = require('express'),
     users = require('./routes/users');
 
 var app = express();
-var data = require('./routes/data')(app);
+var data = require('./routes/service');
 
 // view engine setup
 app.engine('dust', cons.dust);

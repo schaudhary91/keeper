@@ -18,7 +18,7 @@ module.exports = function (app){
 
   /* Generate test data */
   router.get('/gentestd', function(req, res) {
-    var users = [
+    var user = [
       {
         "email":"skumar@gmail.com",
         "firstname":"shashaank",
@@ -34,7 +34,7 @@ module.exports = function (app){
         "uname":"scha"
       }
     ];
-    var tags = [
+    var note = [
       {
         "title":"This is Title",
         "text":"some selected text.",
@@ -65,31 +65,92 @@ module.exports = function (app){
       }
     ];
 
+
+
     getCollection('tusers').remove({},function(er){
       if(!er){
         console.log('tusers deleted');
       }
     });
-    getCollection('ttags').remove({},function(er){
+    getCollection('tNote').remove({},function(er){
       if(!er){
-        console.log('ttags deleted');
+        console.log('tNotes deleted');
       }
     });
-    for(var i = 0; i<users.length; i++){
-      getCollection('tusers').insert(users[i],function(er){
+    for(var i = 0; i<user.length; i++){
+      getCollection('tusers').insert(user[i],function(er){
         if(!er){
           console.log('tusers created');
         }
       });
     }
-    for(var j = 0; j<tags.length; j++){
-      getCollection('ttags').insert(tags[j],function(er){
+    for(var j = 0; j<note.length; j++){
+      getCollection('ttags').insert(note[j],function(er){
         if(!er){
           console.log('ttags created');
         }
       });
     }
     res.send('.....................');
+  });
+
+
+  router.get('/deleteall', function(req, res, next){
+    console.log("Delete All");
+    getCollection('note').remove({},function(er){
+      if(!er){
+        console.log('Note deleted');
+      } else {
+        console.log('Error deleting Notes');
+      }
+    });
+
+    getCollection('tag').remove({},function(er){
+      if(!er){
+        console.log('Tag deleted');
+      } else {
+        console.log('Error deleting Tags');
+      }
+    });
+
+    res.end();
+  });
+
+  router.get('/getTags', function(req, res, next){
+    console.log("Getting tags");
+    var param = {};
+    param = req.body.name && req.body.name || param;
+    getCollection('tag').find(param).toArray(function(er, result){
+      if(!er){
+        res.send(result);
+      } else {
+        console.log('Error fetching tags');
+      }
+    });
+
+  });
+
+  router.post('/addNote', function(req, res, next) {
+    console.log("Adding a note");
+
+    var tag = req.body.tag
+        , content = req.body.cont;
+
+    // Save Note
+    var oNote = { "content": content, "tag": tag };
+      getCollection("note").insert(oNote, {}, function(e, results){
+        if (e) {
+          return next(e);
+        }
+        // Add Tag
+        console.log("Adding tag: "+  tag);
+        getCollection("tag").insert({"name": tag}, {}, function(e, results){
+          if (e) {
+            return next(e);
+          }
+          res.send(results);
+        });
+      });
   });
 
   /* GET Collection Data */
@@ -113,16 +174,6 @@ module.exports = function (app){
       }
       res.send(results);
     })
-  });
-
-  /* Insert Collection Data */
-  router.post('/:cn', function(req, res, next) {
-    getCollection(req.params.cn).insert(req.body, {}, function(e, results){
-        if (e) {
-          return next(e);
-        }
-        res.send(results);
-      });
   });
 
   /* Update Collection Data */
