@@ -7,10 +7,11 @@ var express = require('express'),
     cons = require('consolidate'),
     mongoskin = require('mongoskin'),
     routes = require('./routes/index'),
-    users = require('./routes/users');
+    users = require('./routes/users'),
+    service = require('./routes/service');
 
 var app = express();
-var data = require('./routes/service');
+
 
 // view engine setup
 app.engine('dust', cons.dust);
@@ -27,7 +28,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
 app.use('/users', users);
-app.use('/data', data);
+app.use('/data', service);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
