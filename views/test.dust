@@ -1,0 +1,146 @@
+{>layout/}
+{<main}
+    <h2>"Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..."</h2>
+    <h3>"There is no one who loves pain itself, who seeks after it and wants to have it, simply because it is pain..."</h3>
+
+    <ul>
+        <li>Lipsum</li>
+        <li>Lipsum</li>
+        <li>Lipsum</li>
+        <li>Lipsum</li>
+    </ul>
+
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque sed odio tortor. Phasellus velit ante, luctus vitae rutrum ut, tincidunt eu ex. Sed ultrices nulla eget turpis ultricies, eu luctus arcu pellentesque. Ut pulvinar risus et gravida varius. Mauris leo sem, fringilla sit amet bibendum nec, placerat ut orci. Praesent ac elit ac elit scelerisque ultrices. Mauris vehicula eleifend felis, vitae pharetra ante maximus id. Nam feugiat urna eu aliquet dictum. Sed at bibendum risus. Aenean non erat nec quam vestibulum tempor sit amet ut diam. Donec bibendum, tellus vitae volutpat laoreet, nulla augue tempor lectus, a eleifend libero sem ut metus. In vestibulum efficitur eros. Donec pulvinar sapien accumsan tincidunt scelerisque.</p>
+
+    <p>Mauris porttitor vestibulum enim a dignissim. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Phasellus pharetra, elit quis ultrices ullamcorper, justo arcu ullamcorper dolor, sed vestibulum erat ligula et nulla. Nulla varius libero erat, et molestie risus facilisis eget. Etiam mollis pretium ipsum, a egestas leo finibus efficitur. Proin orci velit, interdum ut laoreet eget, mollis a libero. Mauris aliquam eu dolor eget vestibulum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec laoreet est eget malesuada posuere. Interdum et malesuada fames ac ante ipsum primis in faucibus. Sed viverra dolor ultricies pharetra ullamcorper.</p>
+
+    <p>Sed vehicula bibendum malesuada. Sed interdum faucibus metus, ac rhoncus ipsum lobortis id. Donec dignissim hendrerit metus, sed fringilla arcu sagittis quis. Donec consequat ex dui, quis finibus magna feugiat vitae. Aliquam malesuada nulla arcu, sed finibus turpis posuere ac. Maecenas aliquet nunc et magna placerat, quis pulvinar erat rutrum. Fusce finibus risus vitae sapien interdum imperdiet. Cras eget sollicitudin ipsum.</p>
+
+    <p>Mauris in tellus mi. Nulla laoreet dignissim congue. Sed fringilla quam at arcu imperdiet eleifend. Integer at neque porta arcu pretium interdum id dapibus felis. Phasellus commodo magna ut eleifend rhoncus. Pellentesque augue ante, elementum nec aliquam a, pellentesque id augue. Nam ornare leo cursus, consequat lorem et, luctus lacus. Ut commodo tincidunt augue, nec tincidunt tortor tempor et. Vivamus laoreet est mauris, eu mattis eros congue quis. Nam sapien elit, egestas at mauris vel, maximus sollicitudin libero. Sed volutpat pretium mi, non rhoncus metus aliquet nec.</p>
+
+    <p>Nunc placerat turpis urna. Duis molestie efficitur mauris. Duis vehicula, neque ut accumsan pulvinar, lacus metus faucibus urna, id faucibus elit metus id est. Aliquam odio dui, porta ac lectus quis, venenatis rutrum justo. Phasellus quis mattis nulla, a volutpat odio. Etiam ut efficitur quam. Phasellus sit amet dolor erat. Phasellus sapien risus, pellentesque ut dui nec, sodales auctor felis. Fusce in ipsum vulputate, pretium quam eget, feugiat leo. Morbi viverra ipsum id arcu consectetur, nec suscipit tellus interdum. Cras pellentesque vitae nulla sed fermentum. Fusce interdum quam arcu, at rhoncus est dictum at. Morbi at molestie tellus. Nam bibendum nunc lobortis, accumsan ex eget, facilisis erat.</p>
+
+    <span>Generated 5 paragraphs, 465 words, 3145 bytes of Lorem Ipsum</span>
+
+    <div id="kp-wrapper">
+        <style>
+        #kp-wrapper * {
+            box-sizing: border-box;
+        }
+        #kp-btn {
+            position: fixed;
+            width: 30px;
+            height: 30px;
+            font-size: 20px;
+        }
+        #kp-dialog {
+            z-index: 100000;
+            display: none;
+            position: fixed;
+            width: 300px;
+            height: 250px;
+            font-size: 20px;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin: auto;
+            padding: 30px;
+            border: 5px solid;
+            box-sizing: border-box;
+            background-color: white;
+        }
+        #kp-login {
+            z-index: 100001;
+            display: none;
+            position: fixed;
+            width: 300px;
+            height: 250px;
+            font-size: 20px;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin: auto;
+            padding: 30px;
+            border: 5px solid;
+            box-sizing: border-box;
+            background-color: white;
+        }
+        #kp-overlay {
+            display: none;
+            position: fixed;
+            top: -200px;
+            bottom: -200px;
+            left: -200px;
+            right: -200px;
+            z-index: 99999;
+            background-color: black;
+            opacity: 0.7;
+        }
+        #kp-heading {
+            margin: 0;
+            text-align: center;
+        }
+        #kp-selection {
+            font-size: 16px;
+            font-family: monospace;
+            height: 40px;
+            overflow: hidden;
+        }
+        #kp-tagName {
+            display: block;
+            width: 100%;
+            padding: 5px;
+            margin-bottom: 15px;
+        }
+        #kp-tagName.emptyError {
+            border: 2px solid red;
+        }
+        #kp-btnHolder {
+            font-size: 0;
+        }
+        .kp-actionBtn {
+            width: 50%;
+            min-height: 30px;
+        }
+        #kp-loader,
+        #kp-confirmation,
+        #kp-regret {
+            display: none;
+        }
+        </style>
+        <!--<script src="https://apis.google.com/js/client:platform.js" async defer></script>-->
+        <button id="kp-btn" style="display: none;">#</button>
+        <div id="kp-dialog">
+            <h2 id="kp-heading">Keeper</h2>
+            <div id="kp-saveForm">
+                <p id="kp-selection">{selection}</p>
+                <input id="kp-tagName" type="text" placeholder="Your tag name goes here"></input>
+                <div id="kp-btnHolder">
+                    <button id="kp-saveTag" class="kp-actionBtn">Save Tag</button>
+                    <button id="kp-authSaveTag" class="kp-actionBtn">Auth &amp; Save Tag</button>
+                    <button class="kp-actionBtn kp-cancel">Cancel</button>
+                </div>
+            </div>
+            <div id="kp-loader">
+                ...a moment while we save your tag...
+            </div>
+            <div id="kp-success">
+                <p class="kp-message">Yay! Tag saved.</p>
+                <button class="kp-actionBtn kp-cancel">OK</button>
+            </div>
+            <div id="kp-regret">
+                <p class="kp-message">Oops! Looks like something went wrong. Lets try saving that tag again?</p>
+                <button id="kp-tryAgain" class="kp-actionBtn">Yeah, Sure</button>
+                <button class="kp-actionBtn kp-cancel">Nah! I'l do that later</button>
+            </div>
+        </div>
+        <div id="kp-login"></div>
+
+        <div id="kp-overlay"></div>
+    </div>
+</body>
+<script src="/js/authentication.js"></script>
+<script src="/js/getSelection.js"></script>
+{/main}

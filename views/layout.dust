@@ -9,9 +9,11 @@
   <script src="/js/vendor/modernizr.js"></script>
 </head>
 <body>
+  {+navigation}
   <nav>
     {>nav/}
   </nav>
+  {/navigation}
   <div class="row">
     <div class="small-12 columns">
       {+main}
