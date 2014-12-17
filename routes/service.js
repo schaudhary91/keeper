@@ -22,4 +22,11 @@ router.get('/gentestd', loadModel('gentestd'));
 /*Get Tags*/
 router.get('/getTags', loadModel('getTags'));
 
+/*Save Note */
+router.post('/keepNote', loadModel('keepNote'));
+
+/*Delete all notes, tags data - [#DEV - test purpose] */
+router.get('/deleteContent', loadModel('deleteContent'));
+
+
 module.exports = router;

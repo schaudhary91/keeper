@@ -27,9 +27,7 @@ var authenticator = function() {
                         expiresIn = splitUrl[1].split('=')[1];
                         tokenType = splitUrl[2].split('=')[1];
 
-                        setTimeout(function() {
-                            win.close();  
-                        }, 2000)
+                        win.close();
 
                         that.validateToken(acToken);
                     }
@@ -54,7 +52,7 @@ var authenticator = function() {
                 data: null,
                 success: function(resp) {
                     that.user = resp;
-                    keep.saveTag();         
+                    keep.saveTag();
                 },
                 dataType: "jsonp"
             });

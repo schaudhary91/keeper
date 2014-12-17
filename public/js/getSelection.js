@@ -95,13 +95,13 @@ KeeperClient.prototype = (function() {
                     saveDialog.style.display = 'block';
                     _tagInput.focus();
                     break;
-            	case 'loader' : 
+            	case 'loader' :
                     loaderDialog.style.display = 'block';
                     break;
-                case 'success' : 
+                case 'success' :
                     successDialog.style.display = 'block';
                     break;
-                case 'regret' : 
+                case 'regret' :
                     regretDialog.style.display = 'block';
                     break;
             }
@@ -125,7 +125,7 @@ KeeperClient.prototype = (function() {
             that.showDialog('loader');
             that.postAttributes();
         },
-        validateInput : function() {            
+        validateInput : function() {
             if(_tagInput.value === '') {
                 _tagInput.classList.add('emptyError');
                 _tagInput.setAttribute('placeholder', 'Enter a tag name first !');
@@ -141,17 +141,16 @@ KeeperClient.prototype = (function() {
                     'location' : window.location.href,
                     'selection' : that.selection,
                     'tag' : that.tagName,
-                    'uID' : 'Dummy'
-                }
+                    'user' : JSON.stringify(this.auth.user)
+                };
 
-            console.log(attrObj);
-            setTimeout(function() {
-                if(true) {
-                    that.showDialog('success');
-                } else {
-                    that.showDialog('regret');
-                }
-            }, 1000)
+          $.post('/data/keepNote',attrObj,function (res){
+            if(res && res.success) {
+              that.showDialog('success');
+            } else {
+              that.showDialog('regret');
+            }
+          });          
         },
         showLogin : function() {
 
@@ -179,7 +178,7 @@ KeeperClient.prototype = (function() {
                 }
             });
 
-            _saveBtn.addEventListener('click', function() {                
+            _saveBtn.addEventListener('click', function() {
                 if(that.validateInput.call(that)) {
                     that.saveTag.call(that);
                 }
