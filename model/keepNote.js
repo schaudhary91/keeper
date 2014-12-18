@@ -9,9 +9,8 @@ module.exports = function (serviceNS){
       serviceNS.getCollection('user').update(query,{$set:user},{upsert:true},function (er,result){
         if(!er){
           // Call to save tags
-          saveTag(data.tag);
-          saveNote(data, user.id);
-          res.send({"success": true});
+          saveTag(data);
+
         } else {
           console.log('Error updating user: ' + user.given_name + ' / ' + user.id);
           res.send({"success": false});
@@ -21,10 +20,10 @@ module.exports = function (serviceNS){
 
     /* Save Tag */
     function saveTag(data){
-      var query = {name: data};
+      var query = {name: data.tag};
       serviceNS.getCollection('tag').update(query,{$set:query},{upsert:true},function (er,result){
         if(!er){
-          res.status({"success": true}).end();
+          saveNote(data, user.id);
         } else {
           console.log('Error updating tags: ' + data);
           console.log(er);
