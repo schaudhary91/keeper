@@ -141,6 +141,5 @@
         <div id="kp-overlay"></div>
     </div>
 </body>
-<script src="/js/authentication.js"></script>
 <script src="/js/getSelection.js"></script>
 {/main}
