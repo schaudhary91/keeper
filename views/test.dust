@@ -78,6 +78,12 @@
             background-color: black;
             opacity: 0.7;
         }
+        #kp-signedInStatus {
+            padding-left: 30%;
+            width: 100%;
+            text-align: right;
+            font-size: 11px;
+        }
         #kp-heading {
             margin: 0;
             text-align: center;
@@ -87,6 +93,27 @@
             font-family: monospace;
             height: 40px;
             overflow: hidden;
+        }
+        #kp-tagHolder {
+            min-height: 20px;
+            margin-bottom: 5px;
+        }
+        .kp-tagBox {
+            border: 1px silver solid;
+            display: inline-block;
+            padding: 0 14px 0 5px;
+            position: relative;
+            margin-right: 5px;
+            font-size: 15px;
+        }
+        .kp-tagBox .cross {
+            position: absolute;
+            top: 2px;
+            bottom: 0;
+            padding-right: 3px;
+            right: 0;
+            font-size: 12px;
+            cursor: pointer;
         }
         #kp-tagName {
             display: block;
@@ -113,13 +140,15 @@
         <!--<script src="https://apis.google.com/js/client:platform.js" async defer></script>-->
         <button id="kp-btn" style="display: none;">#</button>
         <div id="kp-dialog">
+            <div id="kp-signedInStatus">Not signed in</div>
             <h2 id="kp-heading">Keeper</h2>
             <div id="kp-saveForm">
                 <p id="kp-selection">{selection}</p>
+                <div id="kp-tagHolder"></div>
                 <input id="kp-tagName" type="text" placeholder="Your tag name goes here"></input>
                 <div id="kp-btnHolder">
                     <button id="kp-saveTag" class="kp-actionBtn">Save Tag</button>
-                    <button id="kp-authSaveTag" class="kp-actionBtn">Auth &amp; Save Tag</button>
+                    <button id="kp-authSaveTag" style="display: none" class="kp-actionBtn">Auth &amp; Save Tag</button>
                     <button class="kp-actionBtn kp-cancel">Cancel</button>
                 </div>
             </div>
